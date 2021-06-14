@@ -9,6 +9,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -44,6 +45,24 @@ public class HistoryActivity extends Activity{
         	reloadData();
         }
 	}
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+	    //Handle the back button
+		if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+	        switch (event.getAction()) {
+		        case KeyEvent.ACTION_DOWN:
+		        	Intent mainmenu = new Intent(getApplicationContext(), MainMenuActivity.class);
+		        	mainmenu.putExtra("id", id);
+					startActivity(mainmenu);
+					finish();
+		            return true;
+		        default:
+		        	return false;
+	        }
+	    }
+		else{
+			return false;
+		}
+	}
 	public String cariString(){
 		String temp = res.substring(0, res.indexOf(sep.charAt(0)));
 		res = res.substring(res.indexOf(sep.charAt(0)) + 1);
@@ -56,19 +75,24 @@ public class HistoryActivity extends Activity{
     	try{
         	String response = JSONParser.executeHttpPost("https://kevintd.000webhostapp.com/GetAllTransaction.php", postParameters);
 			res = response.toString();
-			int rowcount = Integer.valueOf(cariString());
-			for(int i = 1; i <= rowcount; i++){
-				Transaction transaksi = new Transaction();
-				transaksi.setNum(i);
-				transaksi.setNominal(Double.valueOf(cariString()));
-				transaksi.setTanggal(cariString());
-				transaksi.setJenis(cariString());
-				transaksi.setKeterangan(cariString());
-            	transactionList.add(transaksi);
+			if(res.length() > 2){
+				int rowcount = Integer.valueOf(cariString());
+				for(int i = 1; i <= rowcount; i++){
+					Transaction transaksi = new Transaction();
+					transaksi.setNum(i);
+					transaksi.setNominal(Double.valueOf(cariString()));
+					transaksi.setTanggal(cariString());
+					transaksi.setJenis(cariString());
+					transaksi.setKeterangan(cariString());
+	            	transactionList.add(transaksi);
+				}
+			}
+			else{
+				Toast.makeText(getApplicationContext(), "Histori transaksi kosong.", Toast.LENGTH_LONG).show();
 			}
     	}
     	catch(Exception e){
-    		Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+    		//Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
     	}
 	}
 	@Override
@@ -89,19 +113,24 @@ public class HistoryActivity extends Activity{
     	try{
         	String response = JSONParser.executeHttpPost("https://kevintd.000webhostapp.com/GetSpecificTransaction.php", postParameters);
 			res = response.toString();
-			int rowcount = Integer.valueOf(cariString());
-			for(int i = 1; i <= rowcount; i++){
-				Transaction transaksi = new Transaction();
-				transaksi.setNum(i);
-				transaksi.setNominal(Double.valueOf(cariString()));
-				transaksi.setTanggal(cariString());
-				transaksi.setJenis(cariString());
-				transaksi.setKeterangan(cariString());
-            	transactionList.add(transaksi);
+			if(res.length() > 2){
+				int rowcount = Integer.valueOf(cariString());
+				for(int i = 1; i <= rowcount; i++){
+					Transaction transaksi = new Transaction();
+					transaksi.setNum(i);
+					transaksi.setNominal(Double.valueOf(cariString()));
+					transaksi.setTanggal(cariString());
+					transaksi.setJenis(cariString());
+					transaksi.setKeterangan(cariString());
+	            	transactionList.add(transaksi);
+				}
+			}
+			else{
+				Toast.makeText(getApplicationContext(), "Tidak ada transaksi dengan keterangan atau nominal tersebut.", Toast.LENGTH_LONG).show();
 			}
     	}
     	catch(Exception e){
-    		 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+    		 //Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
     	}
 	}
 }
