@@ -36,10 +36,6 @@
 		     android:label="Transaction" >
 		</activity>
 		<activity
-		     android:name="com.example.mytransaction.ReportActivity"
-		     android:label="Report" >
-		</activity>
-		<activity
 		     android:name="com.example.mytransaction.HistoryActivity"
 		     android:label="History" >
 	            <intent-filter>

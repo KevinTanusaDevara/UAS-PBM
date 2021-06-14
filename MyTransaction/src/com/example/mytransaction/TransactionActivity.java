@@ -13,6 +13,7 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -107,6 +108,24 @@ public class TransactionActivity extends Activity{
 				jenistransaksi.clearCheck();
 			}
 		});
+	}
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+	    //Handle the back button
+		if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+	        switch (event.getAction()) {
+		        case KeyEvent.ACTION_DOWN:
+		        	Intent mainmenu = new Intent(getApplicationContext(), MainMenuActivity.class);
+		        	mainmenu.putExtra("id", id);
+					startActivity(mainmenu);
+					finish();
+		            return true;
+		        default:
+		        	return false;
+	        }
+	    }
+		else{
+			return false;
+		}
 	}
 	private void updateTanggal() {
 	    String myFormat = "yyyy-MM-dd"; //Date format

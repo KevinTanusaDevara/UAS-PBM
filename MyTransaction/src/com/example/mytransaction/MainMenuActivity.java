@@ -3,13 +3,14 @@ package com.example.mytransaction;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class MainMenuActivity extends Activity{
 	String id;
-	Button transaksi, histori, laporan;
+	Button transaksi, histori;
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,5 +36,22 @@ public class MainMenuActivity extends Activity{
 				finish();
 			}
 		});
+	}
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+	    //Handle the back button
+		if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+	        switch (event.getAction()) {
+		        case KeyEvent.ACTION_DOWN:
+		        	Intent login = new Intent(getApplicationContext(), MainActivity.class);
+					startActivity(login);
+					finish();
+		            return true;
+		        default:
+		        	return false;
+	        }
+	    }
+		else{
+			return false;
+		}
 	}
 }
