@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="125dp"
+	    android:layout_below="@+id/textView1"
+	    android:layout_centerHorizontal="true"
+	    android:background="#9f9d9e"
+	    android:padding="0dp" >
+
+	    <TextView
+	        android:id="@+id/tvNum"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="2dp"
+	        android:layout_marginTop="5dp"
+	        android:gravity="left"
+	        android:text="0"
+	        android:textColor="#000000"
+	        android:textSize="25dp"
+	        android:textStyle="bold" />
+
+	    <TextView
+	        android:id="@+id/tvNominal"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentTop="true"
+	        android:layout_marginLeft="10dp"
+	        android:layout_marginRight="2dp"
+	        android:layout_marginTop="5dp"
+	        android:layout_toRightOf="@+id/tvNum"
+	        android:gravity="left"
+	        android:text="Nominal : ..."
+	        android:textColor="#000000"
+	        android:textSize="25dp"
+	        android:textStyle="bold" />
+
+	    <TextView
+	        android:id="@+id/tvTanggal"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/tvNominal"
+	        android:layout_marginLeft="18dp"
+	        android:layout_marginRight="2dp"
+	        android:layout_marginTop="5dp"
+	        android:layout_toRightOf="@+id/tvNum"
+	        android:gravity="left"
+	        android:text="Tanggal transaksi : ....-..-.."
+	        android:textColor="#000000"
+	        android:textSize="18dp"
+	        android:textStyle="italic" />
+
+	    <TextView
+	        android:id="@+id/tvJenis"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/tvTanggal"
+	        android:layout_marginLeft="18dp"
+	        android:layout_marginRight="2dp"
+	        android:layout_marginTop="5dp"
+	        android:layout_toRightOf="@+id/tvNum"
+	        android:gravity="left"
+	        android:text="Jenis Transaksi : ..."
+	        android:textColor="#000000"
+	        android:textSize="18dp"
+	        android:textStyle="italic" />
+	    
+   	    <TextView
+	        android:id="@+id/tvKeterangan"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_below="@+id/tvJenis"
+	        android:layout_marginLeft="18dp"
+	        android:layout_marginRight="2dp"
+	        android:layout_marginTop="5dp"
+	        android:layout_toRightOf="@+id/tvNum"
+	        android:gravity="left"
+	        android:text="Keterangan : ..."
+	        android:textColor="#000000"
+	        android:textSize="18dp"
+	        android:textStyle="italic" />
+   	    
+	</RelativeLayout>
+
+</RelativeLayout>
