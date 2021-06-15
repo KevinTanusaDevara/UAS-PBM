@@ -24,18 +24,25 @@
         android:layout_below="@+id/textView1"
         android:layout_marginTop="40dip" >
 
-        <Button
-            android:id="@+id/btnTransaksi"
-            android:layout_width="105dp"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/imgTransaksi"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
             android:layout_toLeftOf="@+id/view"
-            android:background="#000000"
-            android:shadowColor="#01458E"
+            android:src="@drawable/tambah" />
+        
+        <TextView
+            android:id="@+id/txtTransaksi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/imgTransaksi"
+            android:layout_alignRight="@+id/imgTransaksi"
+            android:layout_below="@+id/imgTransaksi"
+            android:gravity="center"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5"
             android:text="Input Transaksi"
-            android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
         <View
@@ -46,18 +53,25 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp" />
 
-        <Button
-            android:id="@+id/btnHistori"
-            android:layout_width="105dp"
-            android:layout_height="wrap_content"
+        <ImageView
+            android:id="@+id/imgHistori"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
             android:layout_toRightOf="@+id/view"
-            android:background="#000000"
-            android:shadowColor="#01458E"
+            android:src="@drawable/riwayat"/>
+        
+        <TextView
+            android:id="@+id/txtHistori"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/imgHistori"
+            android:layout_alignRight="@+id/imgHistori"
+            android:layout_below="@+id/imgTransaksi"
+            android:gravity="center"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="5"
             android:text="Histori Transaksi"
-            android:textColor="#FFFFFF"
             android:textSize="16sp" />
         
     </RelativeLayout>
