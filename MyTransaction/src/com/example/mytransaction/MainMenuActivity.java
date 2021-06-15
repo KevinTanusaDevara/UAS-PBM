@@ -6,19 +6,23 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 public class MainMenuActivity extends Activity{
 	String id;
-	Button transaksi, histori;
+	ImageView imgTransaksi, imgHistori;
+	TextView txtTransaksi, txtHistori;
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        transaksi = (Button) findViewById(R.id.btnTransaksi);
-		histori = (Button) findViewById(R.id.btnHistori);
+        imgTransaksi = (ImageView) findViewById(R.id.imgTransaksi);
+        imgHistori = (ImageView) findViewById(R.id.imgHistori);
+        txtTransaksi = (TextView) findViewById(R.id.txtTransaksi);
+        txtHistori = (TextView) findViewById(R.id.txtHistori);
 		id = this.getIntent().getStringExtra("id"); //Ambil id user dan simpan di sebuah variable.
-		transaksi.setOnClickListener(new OnClickListener() {
+		imgTransaksi.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Intent haltransaksi = new Intent(getApplicationContext(), TransactionActivity.class);
@@ -27,7 +31,25 @@ public class MainMenuActivity extends Activity{
 				finish();
 			}
 		});
-		histori.setOnClickListener(new OnClickListener() {
+		imgHistori.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent halhistori = new Intent(getApplicationContext(), HistoryActivity.class);
+				halhistori.putExtra("id", id);
+				startActivity(halhistori);
+				finish();
+			}
+		});
+		txtTransaksi.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent haltransaksi = new Intent(getApplicationContext(), TransactionActivity.class);
+				haltransaksi.putExtra("id", id);
+				startActivity(haltransaksi);
+				finish();
+			}
+		});
+		txtHistori.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Intent halhistori = new Intent(getApplicationContext(), HistoryActivity.class);
